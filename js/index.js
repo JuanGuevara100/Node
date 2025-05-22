@@ -13,6 +13,6 @@ var globalVar = "Soy global";
 console.log(globalVar); // Output: Soy global
 
 // module.exports exportacion de funciones
-const {sum} = require('./suma')
+const {sum} = require('../suma')
 console.log(sum(1,2));
 console.log(sum(3,4));
