@@ -1,11 +1,13 @@
 const fs = require('node:fs')
 
 console.log('Leyendo el primer archivo')
-const text = fs.readFileSync('./archivo.txt','utf-8')
-console.log(text);
+fs.readFile('./archivo.txt','utf-8', (err,text) => {
+    console.log('Primer texto: ',text)
+})
 
-console.log('Haciendo cosas mientrasa se lee el archivo') // en el modo sincrono, las tareas se ejecutan una a una, por orden, sin importar el tiempo de ejecución
+console.log('Haciendo cosas mientras se lee el archivo') // en el modo asincrono, las tareas se ejecutan sin orden y se genera antes de leer el contenido del primer archivo
 
 console.log('Leyendo el segundo archivo')
-const text1 = fs.readFileSync('./archivo2.txt', 'utf-8')
-console.log(text1);
+fs.readFile('./archivo2.txt', 'utf-8', (err,text) => {
+    console.log('segundo texto: ', text)
+})
