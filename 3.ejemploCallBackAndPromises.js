@@ -25,3 +25,5 @@
         .catch(error => {
             console.log(error); // Se ejecutará si la promesa se rechaza
         });
+
+        
