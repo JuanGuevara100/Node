@@ -1,27 +1,13 @@
-    function hacerAlgoAsincrono(callback) {
-        setTimeout(() => {
-            console.log("Tarea asincrónica completada");
-            callback("Éxito"); // Llama al callback con el resultado
-        }, 1000);
-    }
+const fs = require('node:fs')
 
-    hacerAlgoAsincrono(function(resultado) {
-        console.log(resultado); // Se ejecutará después de la tarea asincrónica
-    });
+console.log('1. Leyendo el primer archivo')
+fs.readFile('./archivo.txt','utf-8', (err,text) => {
+    console.log('2. Primer texto: ',text)
+})
 
+console.log('3. Haciendo cosas mientras se lee el archivo') // en el modo asincrono, las tareas se ejecutan sin orden y se genera antes de leer el contenido del primer archivo
 
-        function hacerAlgoAsincrono() {
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve("Éxito"); // Resuelve la promesa con "Éxito"
-            }, 1000);
-        });
-    }
-
-    hacerAlgoAsincrono()
-        .then(resultado => {
-            console.log(resultado); // Se ejecutará si la promesa se cumple
-        })
-        .catch(error => {
-            console.log(error); // Se ejecutará si la promesa se rechaza
-        });
+console.log('4. Leyendo el segundo archivo')
+fs.readFile('./archivo2.txt', 'utf-8', (err,text) => {
+    console.log('5. segundo texto: ', text)
+})
